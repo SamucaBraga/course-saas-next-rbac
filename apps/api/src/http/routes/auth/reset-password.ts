@@ -32,9 +32,7 @@ export async function resetPassword(app: FastifyInstance) {
         },
       })
 
-      if (!tokenFromCode) {
-        throw new UnauthorizedError()
-      }
+      if (!tokenFromCode) throw new UnauthorizedError()
 
       const passwordHash = await hash(password, 6)
 
